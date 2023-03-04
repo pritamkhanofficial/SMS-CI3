@@ -36,8 +36,8 @@
                                         <a href="javascript: void(0);" class="has-arrow"><span>Employee</span></a>
                                         <ul class="sub-menu" aria-expanded="true">
                                             <li><a href="<?=base_url('add_employee')?>">Employee List</a></li>
-                                            <li><a href="javascript: void(0);">Designation List</a></li>
-                                            <li><a href="javascript: void(0);">Department List</a></li>
+                                            <li><a href="<?=base_url('designation')?>">Designation List</a></li>
+                                            <li><a href="<?=base_url('department')?>">Department List</a></li>
                                         </ul>
                                     </li>
                                 </ul>

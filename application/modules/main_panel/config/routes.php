@@ -63,6 +63,11 @@ $route['department/(:any)'] = 'main_panel/master/department';
 $route['department/(:any)/(:any)'] = 'main_panel/master/department';
 $route['department/(:any)/(:any)/(:any)'] = 'main_panel/master/department';
 
+$route["designation"] = "main_panel/master/designation"; 
+$route['designation/(:any)'] = 'main_panel/master/designation';
+$route['designation/(:any)/(:any)'] = 'main_panel/master/designation';
+$route['designation/(:any)/(:any)/(:any)'] = 'main_panel/master/designation';
+
 $route["add_employee"] = "main_panel/Master/add_employee"; 
 $route["edit_subject"] = "main_panel/Ajax/edit_subject"; 
 

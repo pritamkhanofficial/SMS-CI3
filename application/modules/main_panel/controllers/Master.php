@@ -264,6 +264,23 @@ class Master extends My_Controller
         }
     }
 
+    public function designation()
+    {
+        if($this->user_type != 1 && $this->user_type != 2) { //if not logged-in
+            $this->session->set_flashdata('type', 'error');
+            $this->session->set_flashdata('title', 'Log-in!');
+            $this->session->set_flashdata('msg', 'Kindly log-in to access that page.');
+            redirect(base_url('admin'));
+        } else {
+             $data = $this->Master_m->designation();
+             if( $data['type'] == 'load_view') {
+                $this->load->view($data['page'], $data['data']);
+             } elseif( $data['type'] == 'redirect') {
+                redirect(base_url($data['page']));
+             }
+        }
+    }
+
     public function add_employee()
     {
         if($this->user_type != 1 && $this->user_type != 2) { //if not logged-in
