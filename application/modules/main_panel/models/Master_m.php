@@ -675,6 +675,8 @@ GROUP BY school_class.class";
             }
         }
         $data['class'] = $this->db->get_where('school_class')->result();
+        $data['department'] = $this->db->get_where('department', array('status'=>1))->result();
+        $data['designation'] = $this->db->get_where('designation',array('status'=>1))->result();
         $data['subjects'] = $this->db->get('subjects')->result();
                 
         // echo "<pre>"; print_r($html); die();

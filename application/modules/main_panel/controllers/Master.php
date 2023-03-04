@@ -263,7 +263,7 @@ class Master extends My_Controller
              }
         }
     }
-
+    
     public function designation()
     {
         if($this->user_type != 1 && $this->user_type != 2) { //if not logged-in

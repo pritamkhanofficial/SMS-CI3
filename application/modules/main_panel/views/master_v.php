@@ -299,20 +299,20 @@
                                                 <input type="date" class="form-control" placeholder="dd/mm/yyyy" id="fees_amount" name="fees_amount" required>
                                             </div>
                                             <div class="col-sm-4">
-                                                <label for="class" class="col-form-label require">Designation</label>
-                                                <select class="form-select select2" required name="class_id" id="class_id">
+                                                <label for="designation_id" class="col-form-label require">Designation</label>
+                                                <select class="form-select" required name="designation_id" id="designation_id">
                                                     <option value="">-- Select Class --</option>
-                                                    <?php foreach ($class as $key => $class_value) { ?>
-                                                            <option value="<?=$class_value->school_class_id?>"><?=$class_value->class?></option>
+                                                    <?php foreach ($designation as $key => $designation_row) { ?>
+                                                            <option value="<?=$designation_row->id?>"><?=$designation_row->name?></option>
                                                         <?php } ?>
                                                 </select>
                                             </div>
                                             <div class="col-sm-4">
-                                                <label for="class" class="col-form-label require">Department</label>
-                                                <select class="form-select select2" required name="class_id" id="class_id">
+                                                <label for="department_id" class="col-form-label require">Department</label>
+                                                <select class="form-select" required name="department_id" id="department_id">
                                                     <option value="">-- Select Class --</option>
-                                                    <?php foreach ($class as $key => $class_value) { ?>
-                                                            <option value="<?=$class_value->school_class_id?>"><?=$class_value->class?></option>
+                                                    <?php foreach ($department as $key => $department_row) { ?>
+                                                            <option value="<?=$department_row->id?>"><?=$department_row->name?></option>
                                                         <?php } ?>
                                                 </select>
                                             </div>
