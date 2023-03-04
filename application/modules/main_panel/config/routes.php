@@ -57,6 +57,12 @@ $route["fees_assign_edit/(:num)"] = "main_panel/master/fees_assign_edit/$1";
 $route["fees_assign"] = "main_panel/master/fees_assign"; 
 $route["class_subject"] = "main_panel/master/class_subject"; 
 $route["add_subjects"] = "main_panel/master/add_subjects"; 
+
+$route["department"] = "main_panel/master/department"; 
+$route['department/(:any)'] = 'main_panel/master/department';
+$route['department/(:any)/(:any)'] = 'main_panel/master/department';
+$route['department/(:any)/(:any)/(:any)'] = 'main_panel/master/department';
+
 $route["add_employee"] = "main_panel/Master/add_employee"; 
 $route["edit_subject"] = "main_panel/Ajax/edit_subject"; 
 

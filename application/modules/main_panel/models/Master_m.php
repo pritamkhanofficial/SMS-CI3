@@ -577,16 +577,49 @@ GROUP BY school_class.class";
         return array('type'=>'load_view', 'page'=>'master_v', 'data'=>$data);
     }
 
+    public function department()
+    {
+        // die();
+        $crud = $this->grocery_crud;
+        //$crud->set_theme('datatables');
+        $crud->set_theme('flexigrid');
+        $crud->set_table('department');
+        $crud->set_subject('Department');
+        //$crud->where('Role', 'Operator');
+        $crud->set_crud_url_path(base_url('department'));
+        //$crud->unset_add();
+        $crud->unset_export();
+        $crud->unset_print();
+        $crud->unset_read();
+        $crud->unset_delete();
+        // $crud->unset_clone();
+        // $crud->unset_edit();
+        $crud->columns('name','status');
+
+        $crud->fields('name','status');
+
+        $crud->field_type('created_by', 'hidden', get_loggedin_id());
+        $crud->field_type('updated_by', 'hidden', get_loggedin_id());
+        $crud->required_fields('name');
+
+        $crud->display_as('name', 'Department name');
+        $output = $crud->render();
+        $output->title = 'Department';
+        $output->menu = 'Department';
+        $output->page_title_right = '<li class="breadcrumb-item "><a href="'.base_url("dashboard").'">Dashboard</a></li><li class="breadcrumb-item active">Department (View / Add / Edit)</li>';
+
+        return array('type'=>'load_view', 'page'=>'common_v', 'data'=>$output);
+    }
     public function add_employee()
     {
         // die('OK');
         $data = array();
         if ($_POST) {
-            extract($this->input->post());
+            //extract($this->input->post());
             // echo "<pre>"; print_r($this->input->post()); die();
             if ($form_add_subjects == 'form_add_subjects') {
                 $data = array();
-                foreach ($subject_id as $key => $value) {
+                foreach ($this->input->post() as $key => $value) {
                     $data['class_id'] = $class_id;
                     $data['session_id'] = get_session_id();
                     $data['subject_id'] = $value;
@@ -600,7 +633,6 @@ GROUP BY school_class.class";
                 }
                 $this->session->set_flashdata('type', 'success');
                 $this->session->set_flashdata('msg', 'Subjects added successfully');
-                
                 return array('type'=>'redirect', 'page'=>"class_subject");
             }else{
                 $this->session->set_flashdata('type', 'error');
